@@ -1,0 +1,48 @@
+{
+  "category": "Tools",
+  "type": "Plugin",
+  "name": "OneWare.CSharp Extension",
+  "id": "OneWare.CSharpModule",
+  "description": "OneWare.CSharp for OneWare",
+  "license": "MIT",
+  "iconUrl": "https://raw.githubusercontent.com/HendrikMennen/OneWare.CSharp/main/Icon.png",
+  "tabs": [
+    {
+      "title": "Readme",
+      "contentUrl": "https://raw.githubusercontent.com/HendrikMennen/OneWare.CSharp/main/Extension.md"
+    },
+    {
+      "title": "License",
+      "contentUrl": "https://raw.githubusercontent.com/HendrikMennen/OneWare.CSharp/main/License.md"
+    }
+  ],
+  "links": [
+    {
+      "name": "Github",
+      "url": "https://github.com/HendrikMennen/OneWare.CSharp"
+    }
+  ],
+  "versions": [
+    {
+      "version": "0.1",
+      "targets": [
+        {
+          "target": "win-x64",
+          "url": "https://github.com/HendrikMennen/OneWare.CSharp/releases/download/0.1/OneWare.CSharpExtension_0.1_win-x64.zip"
+        },
+        {
+          "target": "linux-x64",
+          "url": "https://github.com/HendrikMennen/OneWare.CSharp/releases/download/0.1/OneWare.CSharpExtension_0.1_linux-x64.zip"
+        },
+        {
+          "target": "osx-x64",
+          "url": "https://github.com/HendrikMennen/OneWare.CSharp/releases/download/0.1/OneWare.CSharpExtension_0.1_osx-x64.zip"
+        },
+        {
+          "target": "osx-arm64",
+          "url": "https://github.com/HendrikMennen/OneWare.CSharp/releases/download/0.1/OneWare.CSharpExtension_0.1_osx-arm64.zip"
+        }
+      ]
+    }
+  ]
+}

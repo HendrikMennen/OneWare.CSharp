@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Version>0.1</Version>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <EnableDynamicLoading>true</EnableDynamicLoading>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <SelfContained>false</SelfContained>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="oneware.json" CopyToOutputDirectory="PreserveNewest"/>
+        <AvaloniaResource Include="Assets\**\*.*" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="MsBuildUncompressTask" Version="1.0.5" />
+        <PackageReference Include="OneWare.SDK" Version="0.12.7.0" Private="false" ExcludeAssets="runtime;Native"/>
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'win-x64' OR ('$(RuntimeIdentifier)' == '' AND $([MSBuild]::IsOSPlatform('Windows')))">
+        <UsePackageTarget>win-x64</UsePackageTarget>
+        <ExternalPackageUrl>https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.39.10/omnisharp-win-x64-net6.0.zip</ExternalPackageUrl>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'linux-x64' OR ('$(RuntimeIdentifier)' == '' AND $([MSBuild]::IsOSPlatform('Linux')))">
+        <UsePackageTarget>linux-x64</UsePackageTarget>
+        <ExternalPackageUrl>https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.39.10/omnisharp-linux-x64-net6.0.tar.gz</ExternalPackageUrl>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(RuntimeIdentifier)' == 'osx-x64' OR ('$(RuntimeIdentifier)' == '' AND $([MSBuild]::IsOSPlatform('OSX')))">
+        <UsePackageTarget>osx-x64</UsePackageTarget>
+        <ExternalPackageUrl>https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.39.10/omnisharp-osx-x64-net6.0.tar.gz</ExternalPackageUrl>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageName>clangd</PackageName>
+        <ExtractionFolder>native_tools/$(UsePackageTarget)/$(PackageName)</ExtractionFolder>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="$(ExtractionFolder)/**" CopyToOutputDirectory="PreserveNewest"/>
+    </ItemGroup>
+
+    <Target Name="DownloadExternalPackage" BeforeTargets="BeforeBuild" Condition="'$(ExternalPackageUrl)' != '' AND !Exists('$(ExtractionFolder)')">
+        <DownloadFile
+                SourceUrl="$(ExternalPackageUrl)"
+                DestinationFileName="temp_package.tmp"
+                DestinationFolder="$(IntermediateOutputPath)"/>
+        <Uncompress TargetDirectory="$(ExtractionFolder)"
+                    ArchivePath="$(IntermediateOutputPath)temp_package.tmp"/>
+        <Message Text="Downloaded Package from $(ExternalPackageUrl)" Importance="high"/>
+        <ItemGroup>
+            <Content Include="$(ExtractionFolder)/**" CopyToOutputDirectory="PreserveNewest"/>
+        </ItemGroup>
+    </Target>
+    
+</Project>
