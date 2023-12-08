@@ -15,6 +15,6 @@ public class OneWareCSharpModule : IModule
     public void OnInitialized(IContainerProvider containerProvider)
     {
         //This example adds a context menu for .vhd files
-        containerProvider.Resolve<ILanguageManager>().RegisterService(typeof(LanguageServiceCSharp), false, ".cs");
+        containerProvider.Resolve<ILanguageManager>().RegisterService(typeof(LanguageServiceCSharp), true, ".cs");
     }
 }
