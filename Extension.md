@@ -1,4 +1,4 @@
-![Icon](https://raw.githubusercontent.com/HendrikMennen/OneWare.CSharp/main/Icon.png)
+![Icon](https://raw.githubusercontent.com/HendrikMennen/OneWare.CSharp/master/Icon.png)
 
 ### Get Started
 

@@ -5,15 +5,15 @@
   "id": "OneWare.CSharpModule",
   "description": "OneWare.CSharp for OneWare",
   "license": "MIT",
-  "iconUrl": "https://raw.githubusercontent.com/HendrikMennen/OneWare.CSharp/main/Icon.png",
+  "iconUrl": "https://raw.githubusercontent.com/HendrikMennen/OneWare.CSharp/master/Icon.png",
   "tabs": [
     {
       "title": "Readme",
-      "contentUrl": "https://raw.githubusercontent.com/HendrikMennen/OneWare.CSharp/main/Extension.md"
+      "contentUrl": "https://raw.githubusercontent.com/HendrikMennen/OneWare.CSharp/master/Extension.md"
     },
     {
       "title": "License",
-      "contentUrl": "https://raw.githubusercontent.com/HendrikMennen/OneWare.CSharp/main/License.md"
+      "contentUrl": "https://raw.githubusercontent.com/HendrikMennen/OneWare.CSharp/master/License.md"
     }
   ],
   "links": [
