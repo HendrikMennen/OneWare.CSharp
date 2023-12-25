@@ -5,13 +5,11 @@ using OneWare.SDK.ViewModels;
 
 namespace OneWare.CSharp;
 
-public class LanguageServiceCSharp(string workspace) : LanguageServiceLsp("CSharp-LS", StartPath, string.Empty, workspace)
+public class LanguageServiceCSharp : LanguageServiceLsp
 {
-    private static readonly string? StartPath;
-    
-    static LanguageServiceCSharp()
+    public LanguageServiceCSharp(string workspace) : base("CSharp-LS", workspace)
     {
-        StartPath = PlatformHelper.Platform switch
+        ExecutablePath = PlatformHelper.Platform switch
         {
             PlatformId.WinX64 => $"csharp-ls.exe",
             _ => $"csharp-ls",
